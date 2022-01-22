@@ -2,11 +2,11 @@ import React from 'react';
 import './directory.style.scss';
 import MenuItem from '../menu-items/menu-item.component';
 
-import BG1 from './bgimg/img1.jpg';
-import BG2 from './bgimg/img2.jpg';
-import BG3 from './bgimg/img3.jpg';
-import BG4 from './bgimg/img4.jpg';
-import BG5 from './bgimg/img5.jpg';
+import BG1 from './bgimg/hat2.jpg';
+import BG2 from './bgimg/jacket.jpg';
+import BG3 from './bgimg/sneakers.jpg';
+import BG4 from './bgimg/women.jpg';
+import BG5 from './bgimg/men1.jpg';
 
 class Directory extends React.Component{
     constructor(){
@@ -17,12 +17,14 @@ class Directory extends React.Component{
                 {
                     title: 'hat',
                     imageUrl: BG1,
-                    id: 1
+                    id: 1,
+                    linkUrl: 'hats'
                 },
                 {
                     title: 'jacket',
                     imageUrl: BG2,
-                    id: 2
+                    id: 2,
+                    linkUrl: 'jacket'
                 },
                 {
                     title: 'sneakers',
@@ -36,7 +38,7 @@ class Directory extends React.Component{
                     size: 'large'
                 },
                 {
-                    title: 'hat',
+                    title: 'men',
                     imageUrl: BG5,
                     id: 5,
                     size: 'large'
@@ -49,8 +51,8 @@ class Directory extends React.Component{
     render(){
         return(
             <div className='directory-menu '>
-                {this.state.section.map(({title,id,imageUrl,size}) => (
-                    <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+                {this.state.section.map(({id, ...otherSectionProps}) => (
+                    <MenuItem key={id} {...otherSectionProps} />
                 ) )}
             </div>
         )
